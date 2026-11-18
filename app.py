@@ -4,7 +4,6 @@ import numpy as np
 import cv2
 from PIL import Image
 import os
-os.environ["TF_USE_LEGACY_KERAS"] = "1" # Forces Keras to use the legacy loader for your .h5 model
 
 st.set_page_config(page_title="Glaucoma Detector", page_icon="👁️", layout="centered")
 
