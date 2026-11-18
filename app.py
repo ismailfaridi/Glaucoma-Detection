@@ -11,7 +11,7 @@ st.set_page_config(page_title="Glaucoma Detector", page_icon="👁️", layout="
 # Load the model directly from the folder
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model('model/glaucoma_detector_EfficientNetB3_model.h5', compile=False)
+    model = tf.keras.models.load_model('model/glaucoma_detector_EfficientNetB3_model.keras', compile=False)
     return model
 
 model = load_model()
