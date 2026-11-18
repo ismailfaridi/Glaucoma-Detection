@@ -3,24 +3,15 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from PIL import Image
-import gdown
 import os
 os.environ["TF_USE_LEGACY_KERAS"] = "1" # Forces Keras to use the legacy loader for your .h5 model
 
 st.set_page_config(page_title="Glaucoma Detector", page_icon="👁️", layout="centered")
 
-GDRIVE_FILE_ID = '1NTo34leh7Q5xMcvTbA7JeTETBG3vkHGA'
-MODEL_PATH = 'glaucoma_detector_EfficientNetB3_model.h5'
-
-# Load the model (downloads from Google Drive if not already present)
+# Load the model directly from the folder
 @st.cache_resource
 def load_model():
-    if not os.path.exists(MODEL_PATH):
-        with st.spinner('Downloading model...'):
-            url = f'https://drive.google.com/uc?id={GDRIVE_FILE_ID}'
-            gdown.download(url, MODEL_PATH, quiet=False)
-    
-    model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+    model = tf.keras.models.load_model('model/glaucoma_detector_EfficientNetB3_model.h5', compile=False)
     return model
 
 model = load_model()
