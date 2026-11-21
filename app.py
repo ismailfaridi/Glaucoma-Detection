@@ -52,9 +52,9 @@ if uploaded_file is not None:
         # Display Results
         st.subheader("Diagnosis Result:")
         if prob >= 0.5:
-            st.error(f"🛑 **Glaucoma Positive** (Confidence: {prob * 100:.2f}%)")
+            st.error(f"🛑 **Glaucoma Suspected** (Confidence: {prob * 100:.2f}%)")
         else:
-            st.success(f"✅ **Glaucoma Negative** (Confidence: {(1 - prob) * 100:.2f}%)")
+            st.success(f"✅ **Normal / Healthy** (Confidence: {(1 - prob) * 100:.2f}%)")
         
         # Show the enhanced image for transparency
         # st.write("---")
